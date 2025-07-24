@@ -1,0 +1,82 @@
+ <div
+                key={report.location + report.issueType}
+                className="p-4 rounded-lg border hover:bg-muted/50 transition-all hover:scale-[1.01] cursor-pointer"
+              >
+                <div className="grid grid-cols-1 lg:grid-cols-6 gap-4 items-center">
+                  {/* Report Info */}
+                  <div className="lg:col-span-2">
+                    <div className="flex items-center gap-3">
+                      {/* {getStatusIcon(report.status)} */} <Clock className="h-4 w-4 text-muted-foreground" />
+                      <div>
+                        {/* <h4 className="font-semibold">
+                          {report.issueType?.toString().charAt(0).toUpperCase() + report.issueType?.toString().slice(1)}
+                        </h4> */}
+                        {/* <p className="text-sm text-muted-foreground font-mono">
+                          {report.id.slice(0, 12)}
+                        </p> */}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Location */}
+                  <div>
+                    <div className="flex items-start gap-2">
+                      <MapPin className="h-4 w-4 text-primary mt-0.5" />
+                      <div>
+                        <p className="font-medium text-sm">{report.location}</p>
+                        <p className="text-xs text-muted-foreground">
+                          {/* {report.coordinates} */} coordinates
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Type & Severity */}
+                  {/* <div className="flex flex-col gap-2">
+                    <Badge variant="outline" className="w-fit">
+                      {report.issueType}
+                    </Badge>
+                    <Badge
+                      className={`w-fit ${getSeverityColor(report.alertLevel)}`}
+                    >
+                      {report.alertLevel?.toUpperCase()}
+                    </Badge>
+                  </div> */}
+
+                  {/* Channel & Time */}
+                  <div className="flex flex-col gap-2">
+                    <div className="flex items-center gap-2">
+                      {/* {getChannelIcon(report.channel)} */} <MessageSquare className="h-4 w-4" />
+                      <span className="text-sm capitalize">
+                        {/* {report.channel} */} SMS
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Clock className="h-4 w-4 text-muted-foreground" />
+                      {/* <span className="text-xs text-muted-foreground">
+                        {new Date(report.date).toLocaleString()}
+                      </span> */}
+                    </div>
+                  </div>
+
+                  {/* Actions */}
+                  <div className="flex items-center gap-2">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setSelectedReport(report)}
+                      className="dashboard-icon-bounce"
+                    >
+                      <Eye className="h-4 w-4" />
+                      View
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="dashboard-icon-bounce"
+                    >
+                      <MoreHorizontal className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </div>
+              </div>
