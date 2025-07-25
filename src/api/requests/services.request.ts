@@ -29,7 +29,7 @@ interface GroupedReports {
 
 export const servicesApi = api.injectEndpoints({
   endpoints: (builder) => ({
-    getMessages: builder.query<Messages[], string>({
+    getMessages: builder.query<Messages[], void>({
       query: () => ({
         url: "/services/messages",
         method: "GET",

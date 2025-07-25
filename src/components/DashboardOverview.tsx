@@ -24,7 +24,10 @@ import { MessageMap } from "./messageMap";
 import ReportDetailsModal from "./messageModal";
 
 export function DashboardOverview() {
-  const { data, isLoading, error } = useGetMessagesQuery("");
+  const { data, isLoading, error } = useGetMessagesQuery(undefined, {
+    pollingInterval: 5000,
+    refetchOnFocus: true,
+  });
   const [showFullMap, setShowFullMap] = React.useState(false);
   console.log(data);
   const calculateStats = (messages) => {
