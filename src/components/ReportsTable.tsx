@@ -30,7 +30,10 @@ import {
 import GroupedReports from "./GroupedReportModal";
 
 export function ReportsTable() {
-  const { data, isLoading, error } = useGetMessagesQuery("");
+  const { data, isLoading, error } = useGetMessagesQuery(undefined, {
+    pollingInterval: 5000,
+    refetchOnFocus: true,
+  });
   const {
     data: groupedData,
     isLoading: loadingGrouped,

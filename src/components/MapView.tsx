@@ -52,7 +52,10 @@ const recentPins = [
 ];
 
 export function MapView() {
-  const { data, isLoading, error } = useGetMessagesQuery("");
+  const { data, isLoading, error } = useGetMessagesQuery(undefined, {
+    pollingInterval: 5000,
+    refetchOnFocus: true,
+  });
   const [selectedFilter, setSelectedFilter] = useState("All Reports");
   const [showFullMap, setShowFullMap] = React.useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
